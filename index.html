@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Typing | Speed Test</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="bg-logo"></div>
+
+    <div class="wrapper">
+        <header>
+            <h1>Typing Speed <span class="badge">TEST</span></h1>
+        </header>
+
+        <div class="game-config">
+            <select id="mode-selector">
+                <option value="text">Standard Text</option>
+                <option value="code">Code Mode (JS)</option>
+            </select>
+
+            <div class="time-options">
+                <button class="time-btn" data-time="15">15s</button>
+                <button class="time-btn" data-time="30">30s</button>
+                <button class="time-btn active" data-time="60">60s</button>
+            </div>
+        </div>
+        
+        <div class="stats-bar">
+            <div class="stat">
+                <p>Time Left</p>
+                <span id="timer">60s</span>
+            </div>
+            <div class="stat">
+                <p>Mistakes</p>
+                <span id="mistakes">0</span>
+            </div>
+            <div class="stat">
+                <p>WPM</p>
+                <span id="wpm">0</span>
+            </div>
+            <div class="stat highlight">
+                <p>Best WPM</p>
+                <span id="high-score">0</span>
+            </div>
+        </div>
+
+        <div class="typing-box">
+            <div class="typing-text">
+                <div id="caret"></div>
+                <p id="quote-display"></p>
+            </div>
+            <input type="text" class="input-field" id="input-field">
+        </div>
+
+        <button id="retry-btn">Restart Test</button>
+
+            <footer class="app-footer">
+            <p>
+                © 2026 <strong>Manusha Denuwan</strong> · Typing Speed Test
+                <span class="dot">•</span>
+                <a href="https://github.com/Manusha21738" target="_blank">GitHub</a>
+            </p>
+            </footer>
+
+
+    </div>
+
+<div id="result-modal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Test Completed!</h3>
+                <p id="new-record-msg" class="hidden">👑 New High Score!</p>
+            </div>
+
+            <div class="result-hero">
+                <div class="hero-stat">
+                    <span id="modal-wpm">0</span>
+                    <p>WPM</p>
+                </div>
+            </div>
+
+            <div class="result-details">
+                <div class="detail-box">
+                    <p>Accuracy</p>
+                    <span id="modal-accuracy">0%</span>
+                </div>
+                <div class="detail-box error-box">
+                    <p>Mistakes</p>
+                    <span id="modal-mistakes">0</span>
+                </div>
+                <div class="detail-box time-box">
+                    <p>Time</p>
+                    <span id="modal-time-stat">Finished</span>
+                </div>
+            </div>
+
+            <div class="modal-actions">
+                <button class="primary-btn" onclick="closeModal()">Try Again</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
