@@ -1,0 +1,286 @@
+/* Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&family=Roboto+Mono&display=swap');
+
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* ========================= */
+/* PAGE BACKGROUND */
+/* ========================= */
+body {
+  min-height: 100vh;
+  background: #eef2f5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.bg-logo {
+  position: fixed;
+  inset: 0;
+  background: url("Logo.png") no-repeat center;
+  opacity: 0.75;          /*visibility */
+  filter: blur(5px);        /* blur */
+  z-index: 9999;       /* ABOVE EVERYTHING */
+  pointer-events: none;
+}
+
+
+/* ========================= */
+/* MAIN WRAPPER */
+/* ========================= */
+.wrapper {
+  width: 750px;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(6px);
+  border-radius: 12px;
+  padding: 2.5rem;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+  position: relative;
+  z-index: 2;
+}
+
+/* ========================= */
+/* HEADER */
+/* ========================= */
+header h1 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #1f2937;
+}
+
+.badge {
+  background: #6366f1;
+  color: #fff;
+  font-size: 0.75rem;
+  padding: 3px 8px;
+  border-radius: 6px;
+  vertical-align: middle;
+  margin-left: 6px;
+}
+
+/* ========================= */
+/* GAME CONFIG */
+/* ========================= */
+.game-config {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 2rem 0;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+#mode-selector {
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid #cbd5e1;
+  background: #f8fafc;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+/* Time Buttons */
+.time-options {
+  display: flex;
+  gap: 6px;
+  background: #f1f5f9;
+  padding: 5px;
+  border-radius: 10px;
+}
+
+.time-btn {
+  border: none;
+  background: transparent;
+  padding: 6px 14px;
+  font-weight: 600;
+  color: #64748b;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.time-btn.active {
+  background: #ffffff;
+  color: #6366f1;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+/* ========================= */
+/* STATS BAR */
+/* ========================= */
+.stats-bar {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  background: #f8fafc;
+  padding: 1.3rem;
+  border-radius: 10px;
+  border: 1px solid #e2e8f0;
+}
+
+.stat p {
+  font-size: 0.75rem;
+  color: #64748b;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.stat span {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #1f2937;
+}
+
+.stat.highlight span {
+  color: #6366f1;
+}
+
+/* ========================= */
+/* TYPING AREA */
+/* ========================= */
+.typing-box {
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+.typing-text {
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 1.5rem;
+  min-height: 160px;
+}
+
+.typing-text p {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 1.4rem;
+  line-height: 2.2rem;
+  color: #94a3b8;
+  letter-spacing: 1px;
+  user-select: none;
+}
+
+.typing-text span.correct {
+  color: #10b981;
+}
+
+.typing-text span.incorrect {
+  color: #ef4444;
+  background: #fee2e2;
+  border-radius: 3px;
+}
+
+/* Caret */
+#caret {
+  position: absolute;
+  width: 3px;
+  height: 1.6rem;
+  background: #6366f1;
+  animation: blink 1s infinite;
+  border-radius: 2px;
+  display: none;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+.input-field {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* ========================= */
+/* BUTTONS */
+/* ========================= */
+#retry-btn,
+.primary-btn {
+  width: 100%;
+  padding: 1rem;
+  background: #6366f1;
+  border: none;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+#retry-btn:hover,
+.primary-btn:hover {
+  background: #4f46e5;
+  transform: translateY(-1px);
+}
+
+/* ========================= */
+/* MODAL */
+/* ========================= */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(8px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.3s;
+  z-index: 999;
+}
+
+.modal-overlay.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal-content {
+  background: #ffffff;
+  padding: 2.5rem;
+  border-radius: 20px;
+  width: 450px;
+  text-align: center;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+}
+
+
+/* ========================= */
+/* FOOTER */
+/* ========================= */
+.app-footer {
+  
+  text-align: center;
+}
+
+.app-footer p {
+  font-size: 0.8rem;
+  color: #64748b;
+}
+
+.app-footer strong {
+  color: #1f2937;
+}
+
+.app-footer .dot {
+  margin: 0 6px;
+  color: #cbd5e1;
+}
+
+.app-footer a {
+  color: #6366f1;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.app-footer a:hover {
+  text-decoration: underline;
+}
